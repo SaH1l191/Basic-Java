@@ -872,6 +872,39 @@ class Main {
 }
 
 
+Without Lambda : 
+interface Calculator {
+    int calculate(int a, int b);
+}
+it says : "Any class that implements me must have a calculate() method."
+
+So normally : 
+class MyCalculator implements Calculator {
+    public int calculate(int a, int b) {
+        return a + b;
+    }
+}
+
+Lambda removes the unnecessary class
+
+Because Calculator has only one abstract method:
+int calculate(int a, int b);
+Java allows you to write:
+Calculator c = (a, b) -> a + b;
+meaning -> Create a Calculator whose calculate() method does a + b
+
+is roughly equivalent to:
+Calculator c = new Calculator() {
+    public int calculate(int a, int b) {
+        return a + b;
+    }
+};
+
+
+//continue from phase 7
+
+
+
 
 
 
